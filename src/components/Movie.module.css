@@ -8,13 +8,23 @@
   color: white;
 }
 
-.movie h2 {
+.h2 {
   font-size: 2rem;
   color: #f7e702;
+  margin-left: 100px;
 }
 
 .movie h3 {
   color: #eccf77;
   margin: 0;
   font-size: 1rem;
+}
+
+.titleAndDeleteButton {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+}
+
+.deleteButton {
+  margin-left: auto;
 }

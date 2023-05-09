@@ -7,17 +7,25 @@ const Form = () => {
     const [openingText, setOpeningText] = useState('');
     const [releaseDate, setReleaseDate] = useState('');
 
-    const submitFormHandler = (event) => {
+    const submitFormHandler = async (event) => {
         event.preventDefault();
         const newMovieObj = {
             title: title,
             openingText: openingText,
             releaseDate: releaseDate
         }
-        console.log(newMovieObj);
+        
         setTitle('');
         setOpeningText('');
         setReleaseDate('');
+
+        await fetch('https://reactpractice-b7e74-default-rtdb.firebaseio.com/movies.json', {
+            method: 'POST',
+            body: JSON.stringify(newMovieObj),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
     }
 
     return <form className='form' onSubmit={submitFormHandler}>
